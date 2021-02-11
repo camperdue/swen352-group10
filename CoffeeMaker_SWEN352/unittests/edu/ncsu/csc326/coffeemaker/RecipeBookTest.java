@@ -82,7 +82,7 @@ public class RecipeBookTest extends TestCase {
 		
 		book.addRecipe(recipeOne);
 		assertEquals(book.deleteRecipe(0), "one");
-		assertEquals(book.deleteRecipe(0), "");
+		assertEquals(book.deleteRecipe(0), null);
 	}
 	
 	@Test
@@ -101,12 +101,65 @@ public class RecipeBookTest extends TestCase {
 	}
 	
 	@Test
-	public void testEditRecipe() {
+	public void testEditRecipe1() {
 		RecipeBook book = new RecipeBook();
 		assertNull(book.editRecipe(0, null));
 		assertNull(book.editRecipe(1, null));
+	}
+	
+	@Test
+	public void testEditRecipe2() {
+		RecipeBook book = new RecipeBook();
 		assertNull(book.editRecipe(5, null));
 	}
 	
-
+	@Test
+	public void testEditRecipe3() {
+		RecipeBook book = new RecipeBook();
+		Recipe recipeOne = new Recipe();
+		Recipe recipeTwo = new Recipe();
+		
+		recipeOne.setName("one");
+		
+		book.addRecipe(recipeOne);
+		assertEquals(book.editRecipe(0, recipeTwo), "one");
+	}
+	
+	@Test
+	public void testEditRecipe4() {
+		RecipeBook book = new RecipeBook();
+		Recipe recipeOne = new Recipe();
+		Recipe recipeTwo = new Recipe();
+		
+		recipeOne.setName("one");
+		
+		book.addRecipe(recipeOne);
+		assertEquals(book.editRecipe(0, recipeTwo), "one");
+		assertEquals(book.getRecipes()[0], recipeTwo);
+	}
+	
+	@Test
+	public void testEditRecipe5() {
+		RecipeBook book = new RecipeBook();
+		Recipe recipeOne = new Recipe();
+		Recipe recipeTwo = new Recipe();
+		Recipe recipeThree = new Recipe();
+		Recipe recipeFour = new Recipe();
+		Recipe recipeFive = new Recipe();
+		
+		recipeOne.setName("one");
+		recipeTwo.setName("two");
+		recipeThree.setName("three");
+		recipeFour.setName("four");
+		book.addRecipe(recipeOne);
+		book.addRecipe(recipeTwo);
+		book.addRecipe(recipeThree);
+		book.addRecipe(recipeFour);
+		
+		assertEquals(book.editRecipe(0, recipeFive), "one");
+		assertEquals(book.editRecipe(1, recipeOne), "two");
+		assertEquals(book.editRecipe(2, recipeTwo), "three");
+		assertEquals(book.editRecipe(3, recipeThree), "four");
+		
+	}
 }
