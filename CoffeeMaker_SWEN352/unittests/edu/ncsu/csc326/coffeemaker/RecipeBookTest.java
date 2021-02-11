@@ -61,8 +61,52 @@ public class RecipeBookTest extends TestCase {
 		book.addRecipe(recipeOne);
 		assertFalse(book.addRecipe(recipeOne));
 		assertEquals(book.getRecipes()[0], recipeOne);
-		assertNull(book.getRecipes()[1]);
-		
+		assertNull(book.getRecipes()[1]);	
 	}
+	
+	@Test
+	public void testDeleteRecipe1() {
+		RecipeBook book = new RecipeBook();
+		
+		assertNull(book.deleteRecipe(0));
+		assertNull(book.deleteRecipe(1));
+		assertNull(book.deleteRecipe(5));
+	}
+	
+	@Test
+	public void testDeleteRecipe2() {
+		RecipeBook book = new RecipeBook();
+		Recipe recipeOne = new Recipe();
+		
+		recipeOne.setName("one");
+		
+		book.addRecipe(recipeOne);
+		assertEquals(book.deleteRecipe(0), "one");
+		assertEquals(book.deleteRecipe(0), "");
+	}
+	
+	@Test
+	public void testDeleteRecipe3() {
+		RecipeBook book = new RecipeBook();
+		Recipe recipeOne = new Recipe();
+		Recipe recipeTwo = new Recipe();
+		
+		recipeOne.setName("one");
+		recipeTwo.setName("two");
+		
+		book.addRecipe(recipeOne);
+		book.deleteRecipe(0);
+		book.addRecipe(recipeTwo);
+		assertEquals(book.getRecipes()[0], recipeTwo);
+	}
+	
+	@Test
+	public void testEditRecipe() {
+		RecipeBook book = new RecipeBook();
+		assertNull(book.editRecipe(0, null));
+		assertNull(book.editRecipe(1, null));
+		assertNull(book.editRecipe(5, null));
+	}
+	
 
 }
