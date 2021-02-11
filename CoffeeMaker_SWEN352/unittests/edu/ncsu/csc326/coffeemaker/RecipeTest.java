@@ -1,5 +1,8 @@
 package edu.ncsu.csc326.coffeemaker;
 
-public class RecipeTest {
+import junit.framework.TestCase;
+
+public class RecipeTest extends TestCase {
+	
 
 }
