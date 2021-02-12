@@ -385,8 +385,21 @@ public class InventoryTest extends TestCase {
 	@Test
 	public void testToString() {
 		Inventory inventory = new Inventory();
-		String testString = "Coffee: 15\nMilk: 15\nSugar: 15\nChocolate: 15";
-		assertEquals(testString, inventory.toString());
+		StringBuffer buf = new StringBuffer();
+    	buf.append("Coffee: ");
+    	buf.append(15);
+    	buf.append("\n");
+    	buf.append("Milk: ");
+    	buf.append(15);
+    	buf.append("\n");
+    	buf.append("Sugar: ");
+    	buf.append(15);
+    	buf.append("\n");
+    	buf.append("Chocolate: ");
+    	buf.append(15);
+    	buf.append("\n");
+    	String testString =  buf.toString();
+    	assertEquals(testString, inventory.toString());
 	}
 	
 	
