@@ -26,6 +26,15 @@ public class RecipeTest extends TestCase {
 	}
 	
 	@Test
+	public void testSetAmtChocolateZero() {
+		Recipe recipe = new Recipe();
+		try {
+			recipe.setAmtChocolate("0");
+		} catch(Exception e) { }
+		assertEquals(recipe.getAmtChocolate(), 0);
+	}
+	
+	@Test
 	public void testSetAmtChocolateNegative() {
 		Recipe recipe = new Recipe();
 		try {
@@ -100,6 +109,15 @@ public class RecipeTest extends TestCase {
 		}catch(Exception e) {
 		}
 		assertEquals(recipe.getAmtMilk(),1);
+	}
+	
+	@Test
+	public void testSetAmtMilkZero() {
+		Recipe recipe = new Recipe();
+		try {
+			recipe.setAmtMilk("0");
+		} catch (Exception e) { } 
+		assertEquals(recipe.getAmtMilk(), 0);
 	}
 	
 	@Test
