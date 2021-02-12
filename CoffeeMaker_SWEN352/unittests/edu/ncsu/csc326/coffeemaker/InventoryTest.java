@@ -15,31 +15,35 @@ public class InventoryTest extends TestCase {
 		super.setUp();
 	}
 	
-	//Test Inventory constructor (Test #1)
+	//Test constructor for correct amount of initial chocolate
 	@Test
 	public void testCreation1() {
 		Inventory inventory = new Inventory();
 		assertEquals(15, inventory.getChocolate());
 	}
 	
+	//Test constructor for correct amount of initial coffee
 	@Test
 	public void testCreation2() {
 		Inventory inventory = new Inventory();
 		assertEquals(15, inventory.getCoffee());
 	}
 	
+	//Test constructor for correct amount of initial milk
 	@Test
 	public void testCreation3() {
 		Inventory inventory = new Inventory();
 		assertEquals(15, inventory.getMilk());
 	}
 	
+	//Test constructor for correct amount of initial sugar
 	@Test
 	public void testCreation4() {
 		Inventory inventory = new Inventory();
 		assertEquals(15, inventory.getSugar());
 	}
 	
+	//Test set coffee with input of 0
 	@Test
 	public void testSetCoffee1() {
 		Inventory inventory = new Inventory();
@@ -47,6 +51,7 @@ public class InventoryTest extends TestCase {
 		assertEquals(0, inventory.getCoffee());
 	}
 	
+	//Test set coffee with negative integer input
 	@Test
 	public void testSetCoffee2() {
 		Inventory inventory = new Inventory();
@@ -54,6 +59,7 @@ public class InventoryTest extends TestCase {
 		assertEquals(15, inventory.getCoffee());
 	}
 	
+	//Test set coffee with proper integer input
 	@Test
 	public void testSetCoffee3() {
 		Inventory inventory = new Inventory();
@@ -61,6 +67,7 @@ public class InventoryTest extends TestCase {
 		assertEquals(30, inventory.getCoffee());
 	}
 	
+	//Test set chocolate with input of 0
 	@Test
 	public void testSetChocolate1() {
 		Inventory inventory = new Inventory();
@@ -68,6 +75,7 @@ public class InventoryTest extends TestCase {
 		assertEquals(0, inventory.getChocolate());
 	}
 	
+	//Test set chocolate with negative integer input
 	@Test
 	public void testSetChocolate2() {
 		Inventory inventory = new Inventory();
@@ -75,6 +83,7 @@ public class InventoryTest extends TestCase {
 		assertEquals(15, inventory.getChocolate());
 	}
 	
+	//Test set chocolate with proper integer input
 	@Test
 	public void testSetChocolate3() {
 		Inventory inventory = new Inventory();
@@ -82,6 +91,7 @@ public class InventoryTest extends TestCase {
 		assertEquals(30, inventory.getChocolate());
 	}
 	
+	//Test set sugar with input of 0
 	@Test
 	public void testSetSugar1() {
 		Inventory inventory = new Inventory();
@@ -89,6 +99,7 @@ public class InventoryTest extends TestCase {
 		assertEquals(0, inventory.getSugar());
 	}
 	
+	//Test set sugar with negative integer input
 	@Test
 	public void testSetSugar2() {
 		Inventory inventory = new Inventory();
@@ -96,6 +107,7 @@ public class InventoryTest extends TestCase {
 		assertEquals(15, inventory.getSugar());
 	}
 	
+	//Test set sugar proper integer input
 	@Test
 	public void testSetSugar3() {
 		Inventory inventory = new Inventory();
@@ -103,6 +115,7 @@ public class InventoryTest extends TestCase {
 		assertEquals(30, inventory.getSugar());
 	}
 	
+	//Test set milk with input of 0
 	@Test
 	public void testSetMilk1() { 
 		Inventory inventory = new Inventory();
@@ -110,6 +123,7 @@ public class InventoryTest extends TestCase {
 		assertEquals(0, inventory.getMilk());
 	}
 	
+	//Test set milk with negative integer input
 	@Test
 	public void testSetMilk2() {
 		Inventory inventory = new Inventory();
@@ -117,6 +131,7 @@ public class InventoryTest extends TestCase {
 		assertEquals(15, inventory.getMilk());
 	}
 	
+	//Test set milk proper integer input
 	@Test
 	public void testSetMilk3() {
 		Inventory inventory = new Inventory();
@@ -124,7 +139,7 @@ public class InventoryTest extends TestCase {
 		assertEquals(30, inventory.getMilk());
 	}
 	
-	//Test enoughIncredients (Test #2)
+	//Test enoughIngredients
 	@Test
 	public void testEnoughIngredients() throws RecipeException {
 		Inventory inventory = new Inventory();
@@ -136,9 +151,9 @@ public class InventoryTest extends TestCase {
 		recipe.setAmtSugar("1");
 		recipe.setAmtChocolate("1");
 		assertEquals(true, inventory.enoughIngredients(recipe));
-		}
+	}
 	
-	//Test enoughIngredients when Inventory does not have enough coffee (Test #3)
+	//Test enoughIngredients when not enough coffee
 	@Test
 	public void testEnoughIngredientsNotEnoughCoffee() throws RecipeException {
 		Inventory inventory = new Inventory();
@@ -150,9 +165,9 @@ public class InventoryTest extends TestCase {
 		recipe.setAmtSugar("1");
 		recipe.setAmtChocolate("1");
 		assertEquals(false, inventory.enoughIngredients(recipe));
-		}
+	}
 	
-	//Test enoughIngredients when Inventory does not have enough milk (Test #4)
+	//Test enoughIngredients when not enough milk
 	@Test
 	public void testEnoughIngredientsNotEnoughMilk() throws RecipeException {
 		Inventory inventory = new Inventory();
@@ -164,9 +179,9 @@ public class InventoryTest extends TestCase {
 		recipe.setAmtSugar("1");
 		recipe.setAmtChocolate("1");
 		assertEquals(false, inventory.enoughIngredients(recipe));
-		}
+	}
 	
-	//Test enoughIngredients when Inventory does not have enough sugar (Test #5)
+	//Test enoughIngredients when not enough sugar
 	@Test
 	public void testEnoughIngredientsNotEnoughSugar() throws RecipeException {
 		Inventory inventory = new Inventory();
@@ -178,9 +193,9 @@ public class InventoryTest extends TestCase {
 		recipe.setAmtSugar("20");
 		recipe.setAmtChocolate("1");
 		assertEquals(false, inventory.enoughIngredients(recipe));
-		}
-
-	//Test enoughIngredients when Inventory does not have enough chocolate (Test #6)
+	}
+	
+	//Test enoughIngredients when not enough chocolate
 	@Test
 	public void testEnoughIngredientsNotEnoughChocolate() throws RecipeException {
 		Inventory inventory = new Inventory();
@@ -192,9 +207,9 @@ public class InventoryTest extends TestCase {
 		recipe.setAmtSugar("1");
 		recipe.setAmtChocolate("20");
 		assertEquals(false, inventory.enoughIngredients(recipe));
-		}
+	}
 	
-	//Test useIngredients (Test #7)
+	//Test useIngredients
 	@Test
 	public void testUseIngredients() throws RecipeException {
 		Inventory inventory = new Inventory();
@@ -206,11 +221,11 @@ public class InventoryTest extends TestCase {
 		recipe.setAmtSugar("1");
 		recipe.setAmtChocolate("1");
 		assertEquals(true, inventory.useIngredients(recipe));
-		}
+	}
 	
-	//Test useIngredients when not enough are available (Test #8)
+	//Test useIngredients when not enough coffee
 	@Test
-	public void testUseIngredientsWhenNotEnough() throws RecipeException {
+	public void testUseIngredientsWhenNotEnoughCoffee() throws RecipeException {
 		Inventory inventory = new Inventory();
 		Recipe recipe = new Recipe();
 		recipe.setName("recipe");
@@ -220,9 +235,105 @@ public class InventoryTest extends TestCase {
 		recipe.setAmtSugar("1");
 		recipe.setAmtChocolate("1");
 		assertEquals(false, inventory.useIngredients(recipe));
-		}
+	}
 	
-	//Test addChocolate (Test #9)
+	//Test useIngredients when not enough milk
+	@Test
+	public void testUseIngredientsWhenNotEnoughMilk() throws RecipeException {
+		Inventory inventory = new Inventory();
+		Recipe recipe = new Recipe();
+		recipe.setName("recipe");
+		recipe.setPrice("5");
+		recipe.setAmtCoffee("2");
+		recipe.setAmtMilk("20");
+		recipe.setAmtSugar("1");
+		recipe.setAmtChocolate("1");
+		assertEquals(false, inventory.useIngredients(recipe));
+	}
+	
+	//Test useIngredients when not enough sugar
+	@Test
+	public void testUseIngredientsWhenNotEnoughSugar() throws RecipeException {
+		Inventory inventory = new Inventory();
+		Recipe recipe = new Recipe();
+		recipe.setName("recipe");
+		recipe.setPrice("5");
+		recipe.setAmtCoffee("2");
+		recipe.setAmtMilk("1");
+		recipe.setAmtSugar("20");
+		recipe.setAmtChocolate("1");
+		assertEquals(false, inventory.useIngredients(recipe));
+	}	
+	
+	//Test useIngredients when not enough chocolate
+	@Test
+	public void testUseIngredientsWhenNotEnoughChocolate() throws RecipeException {
+		Inventory inventory = new Inventory();
+		Recipe recipe = new Recipe();
+		recipe.setName("recipe");
+		recipe.setPrice("5");
+		recipe.setAmtCoffee("2");
+		recipe.setAmtMilk("1");
+		recipe.setAmtSugar("1");
+		recipe.setAmtChocolate("20");
+		assertEquals(false, inventory.useIngredients(recipe));
+	}
+	
+	@Test
+	public void testCorrectCoffeeAfterUse() throws RecipeException {
+		Inventory inventory = new Inventory();
+		Recipe recipe = new Recipe();
+		recipe.setName("recipe");
+		recipe.setPrice("5");
+		recipe.setAmtCoffee("15");
+		recipe.setAmtMilk("1");
+		recipe.setAmtSugar("1");
+		recipe.setAmtChocolate("1");
+		inventory.useIngredients(recipe);
+		assertEquals(0, inventory.getCoffee());
+	}
+	
+	@Test
+	public void testCorrectMilkAfterUse() throws RecipeException {
+		Inventory inventory = new Inventory();
+		Recipe recipe = new Recipe();
+		recipe.setName("recipe");
+		recipe.setPrice("5");
+		recipe.setAmtCoffee("15");
+		recipe.setAmtMilk("1");
+		recipe.setAmtSugar("1");
+		recipe.setAmtChocolate("1");
+		inventory.useIngredients(recipe);
+		assertEquals(14, inventory.getMilk());
+	}
+	
+	@Test
+	public void testCorrectSugarAfterUse() throws RecipeException {
+		Inventory inventory = new Inventory();
+		Recipe recipe = new Recipe();
+		recipe.setName("recipe");
+		recipe.setPrice("5");
+		recipe.setAmtCoffee("15");
+		recipe.setAmtMilk("1");
+		recipe.setAmtSugar("1");
+		recipe.setAmtChocolate("1");
+		inventory.useIngredients(recipe);
+		assertEquals(14, inventory.getSugar());
+	}
+		
+	@Test
+	public void testCorrectCholateAfterUse() throws RecipeException {
+		Inventory inventory = new Inventory();
+		Recipe recipe = new Recipe();
+		recipe.setName("recipe");
+		recipe.setPrice("5");
+		recipe.setAmtCoffee("15");
+		recipe.setAmtMilk("1");
+		recipe.setAmtSugar("1");
+		recipe.setAmtChocolate("1");
+		inventory.useIngredients(recipe);
+		assertEquals(14, inventory.getChocolate());
+	}
 	@Test
 	public void testAddChocolate() throws InventoryException {
 		Inventory inventory = new Inventory();
@@ -230,7 +341,6 @@ public class InventoryTest extends TestCase {
 		assertEquals(20, inventory.getChocolate());
 	}
 	
-	//Test addChocolate with empty string (Test #10)
 	@Test
 	public void testAddChocolateEmptyString() throws InventoryException {
 		Inventory inventory = new Inventory();
@@ -238,7 +348,6 @@ public class InventoryTest extends TestCase {
 		assertEquals("Units of chocolate must be a positive integer", exception.getMessage());
 	}	
 	
-	//Test addChocolate with letter (Test #11)
 	@Test
 	public void testAddChocolateLetter() throws InventoryException {
 		Inventory inventory = new Inventory();
@@ -246,7 +355,6 @@ public class InventoryTest extends TestCase {
 		assertEquals("Units of chocolate must be a positive integer", exception.getMessage());
 	}
 	
-	//Test addChocolate with special character (Test #12)
 	@Test
 	public void testAddChocolateSpecialCharacter() throws InventoryException {
 		Inventory inventory = new Inventory();			
@@ -254,7 +362,6 @@ public class InventoryTest extends TestCase {
 		assertEquals("Units of chocolate must be a positive integer", exception.getMessage());
 	}	
 		
-	//Test addChocolate with negative integer (Test #13)
 	@Test
 	public void testAddChocolateNegativeInteger() throws InventoryException {
 		Inventory inventory = new Inventory();
@@ -262,7 +369,6 @@ public class InventoryTest extends TestCase {
 		assertEquals("Units of chocolate must be a positive integer", exception.getMessage());
 	}
 	
-	//Test addCoffee (Test #14)
 	@Test
 	public void testAddCoffee() throws InventoryException {
 		Inventory inventory = new Inventory();
@@ -270,7 +376,6 @@ public class InventoryTest extends TestCase {
 		assertEquals(20, inventory.getCoffee());
 	}
 		
-	//Test addCoffee with empty string (Test #15)
 	@Test
 	public void testAddCoffeeEmptyString() throws InventoryException {
 		Inventory inventory = new Inventory();
@@ -278,7 +383,6 @@ public class InventoryTest extends TestCase {
 		assertEquals("Units of coffee must be a positive integer", exception.getMessage());
 	}	
 		
-	//Test addCoffee with letter (Test #16)
 	@Test
 	public void testAddCoffeeLetter() throws InventoryException {
 		Inventory inventory = new Inventory();
@@ -286,7 +390,6 @@ public class InventoryTest extends TestCase {
 		assertEquals("Units of coffee must be a positive integer", exception.getMessage());
 	}
 		
-	//Test addCoffee with special character (Test #17)
 	@Test
 	public void testAddCoffeeSpecialCharacter() throws InventoryException {
 		Inventory inventory = new Inventory();			
@@ -294,7 +397,6 @@ public class InventoryTest extends TestCase {
 		assertEquals("Units of coffee must be a positive integer", exception.getMessage());
 	}	
 	
-	//Test addCoffee with negative integer (Test #18)
 	@Test
 	public void testAddCoffeeNegativeInteger() throws InventoryException {
 		Inventory inventory = new Inventory();
@@ -302,7 +404,6 @@ public class InventoryTest extends TestCase {
 		assertEquals("Units of coffee must be a positive integer", exception.getMessage());
 	}
 
-	//Test addMilk (Test #19)
 	@Test
 	public void testAddMilk() throws InventoryException {
 		Inventory inventory = new Inventory();
@@ -310,7 +411,6 @@ public class InventoryTest extends TestCase {
 		assertEquals(20, inventory.getMilk());
 	}
 			
-	//Test addMilk with empty string (Test #20)
 	@Test
 	public void testAddMilkEmptyString() throws InventoryException {
 		Inventory inventory = new Inventory();
@@ -318,7 +418,6 @@ public class InventoryTest extends TestCase {
 		assertEquals("Units of milk must be a positive integer", exception.getMessage());
 	}	
 		
-	//Test addMilk with letter (Test #21)
 	@Test
 	public void testAddMilkLetter() throws InventoryException {
 		Inventory inventory = new Inventory();
@@ -326,7 +425,6 @@ public class InventoryTest extends TestCase {
 		assertEquals("Units of milk must be a positive integer", exception.getMessage());
 	}
 			
-	//Test addMilk with special character (Test #22)
 	@Test
 	public void testAddMilkSpecialCharacter() throws InventoryException {
 		Inventory inventory = new Inventory();			
@@ -334,7 +432,6 @@ public class InventoryTest extends TestCase {
 		assertEquals("Units of milk must be a positive integer", exception.getMessage());
 	}	
 		
-	//Test addMilk with negative integer (Test #23)
 	@Test
 	public void testAddMilkNegativeInteger() throws InventoryException {
 		Inventory inventory = new Inventory();
@@ -342,7 +439,6 @@ public class InventoryTest extends TestCase {
 		assertEquals("Units of milk must be a positive integer", exception.getMessage());
 	}
 
-	//Test addSugar (Test #24)
 	@Test
 	public void testAddSugar() throws InventoryException {
 		Inventory inventory = new Inventory();
@@ -350,7 +446,6 @@ public class InventoryTest extends TestCase {
 		assertEquals(20, inventory.getSugar());
 	}
 				
-	//Test addSugar with empty string (Test #25)
 	@Test
 	public void testAddSugarEmptyString() throws InventoryException {
 		Inventory inventory = new Inventory();
@@ -358,7 +453,6 @@ public class InventoryTest extends TestCase {
 		assertEquals("Units of sugar must be a positive integer", exception.getMessage());
 	}	
 			
-	//Test addMilk with letter (Test #26)
 	@Test
 	public void testAddSugarLetter() throws InventoryException {
 		Inventory inventory = new Inventory();
@@ -366,7 +460,6 @@ public class InventoryTest extends TestCase {
 		assertEquals("Units of sugar must be a positive integer", exception.getMessage());
 	}
 				
-	//Test addSugar with special character (Test #27)
 	@Test
 	public void testAddSugarSpecialCharacter() throws InventoryException {
 		Inventory inventory = new Inventory();			
@@ -374,7 +467,6 @@ public class InventoryTest extends TestCase {
 		assertEquals("Units of sugar must be a positive integer", exception.getMessage());
 	}	
 			
-	//Test addSugar with negative integer (Test #28)
 	@Test
 	public void testAddSugarNegativeInteger() throws InventoryException {
 		Inventory inventory = new Inventory();
